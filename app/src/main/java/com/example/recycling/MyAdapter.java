@@ -33,7 +33,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyHolder holder, final int position) {
         Company company = arrayList.get(position);
         holder.imageView.setImageResource(company.getImage());
         holder.textView1.setText(company.getName());
@@ -41,7 +41,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyHolder> {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "I am clickable", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "I am clickable at position="+position, Toast.LENGTH_SHORT).show();
             }
         });
     }
